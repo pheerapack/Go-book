@@ -18,3 +18,5 @@
 * chapter3-3: Compare Floating Point
 
 ## Chapter 4
+* chapter4-1: Long declaration , Short declaration
+* chapter4-2: C degree to F degree
