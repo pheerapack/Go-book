@@ -5,7 +5,7 @@ import "fmt"
 func main()  {
 	for j := 1; j <= 100; j++ {
 		r := findfizzbuzz(j)
-		fmt.Println(r)
+		fmt.Println(j,r)
 	}
 }
 
