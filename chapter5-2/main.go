@@ -1,8 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"strconv"
+	"fmt"
+)
 
 func main()  {
+	forloop()
+}
+
+func forloop() {
 	for j := 1; j <= 100; j++ {
 		r := findfizzbuzz(j)
 		fmt.Println(j,r)
@@ -17,7 +24,7 @@ func findfizzbuzz(j int) (r string) {
 	} else if j%5 == 0 {
 		r = "Buzz"
 	} else {
-		r = "Number"
+		r = strconv.Itoa(j)
 	}
 	return r
 }
