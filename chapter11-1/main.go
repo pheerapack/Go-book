@@ -32,8 +32,8 @@ func printArea(m measure) {
 	fmt.Println(m.area())
 }
 func main() {
-	c := &Circle{0, 0, 5}
+	c := &Circle{1, 1, 8}
 	printArea(c)
-	r := Rectangle{3, 4}
+	r := Rectangle{5, 4}
 	printArea(r)
 }

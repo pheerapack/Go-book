@@ -1,30 +1,28 @@
 package main
 
 import (
-	"strconv"
 	"fmt"
+	"strconv"
 )
 
-func main()  {
+func main() {
 	forloop()
 }
 
 func forloop() {
 	for j := 1; j <= 100; j++ {
 		r := findfizzbuzz(j)
-		fmt.Println(j,r)
+		fmt.Println(j, r)
 	}
 }
 
 func findfizzbuzz(j int) (r string) {
-	if j%15 == 0 {
-		r = "FizzBuzz"
-	} else if j%3 == 0 {
-		r = "Fizz"
-	} else if j%5 == 0 {
-		r = "Buzz"
-	} else {
-		r = strconv.Itoa(j)
+	mod := [3]int{15, 3, 5}
+	answer := [3]string{"FizzBuzz", "Fizz", "Buzz"}
+	for i := 0; i < len(mod); i++ {
+		if j%mod[i] == 0 {
+			return answer[i]
+		}
 	}
-	return r
+	return strconv.Itoa(j)
 }
