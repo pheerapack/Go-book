@@ -4,6 +4,7 @@ import "fmt"
 
 type VendingMachine struct {
 	insertedMoney int
+	coins         map[string]int
 }
 
 func (m VendingMachine) InsertedMoney() int {
@@ -11,7 +12,7 @@ func (m VendingMachine) InsertedMoney() int {
 }
 
 func (m *VendingMachine) InsertCoin(coin string) {
-	m.insertedMoney = 10
+	m.insertedMoney += m.coins[coin]
 }
 
 /*
@@ -25,15 +26,12 @@ func (c NewVendingMachine) InsertCoin() string {
 }
 */
 func main() {
-	//var p1 InsertCoin = NewVendingMachine{10}
-	//var p2 InsertCoin = NewVendingMachine{"F"}
-	//var p3 InsertCoin = NewVendingMachine{"TW"}
-	//var p4 InsertCoin = NewVendingMachine{"O"}
-	//fmt.Println(p1.GetInsertedMoney())
-
 	vm := VendingMachine{}
 	fmt.Println("Insert Money:", vm.InsertedMoney())
 	vm.InsertCoin("T")
+	vm.InsertCoin("F")
+	vm.InsertCoin("TW")
+	vm.InsertCoin("O")
 	fmt.Println("Insert Money:", vm.InsertedMoney())
 	//vm.InsertCoin("T")
 	//vm.InsertCoin("F")
