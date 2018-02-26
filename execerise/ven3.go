@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 )
-
+/*
 type VendingMachine struct {
 	insertedMoney int
 	coins         map[string]int
