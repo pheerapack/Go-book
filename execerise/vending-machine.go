@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
-import "vendingmachine"
+import (
+	"fmt"
+
+	"github.com/pheerapack/vendingmachine"
+)
 
 var coins = map[string]int{"T": 10, "F": 5, "TW": 2, "O": 1}
 var items = map[string]int{"SD": 18, "CC": 12}
