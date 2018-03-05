@@ -78,9 +78,9 @@ func fbtemplate(fbnumber int, str string) func(int) (string, bool) {
 func findfizzbuzz(number int) string {
 	//Array part , call function
 	Arrayfb := [...]func(n int) (string, bool){
-		fbtemplate(3, "Fizz"),
-		fbtemplate(5, "buzz"),
 		fbtemplate(15, "Fizzbuzz"),
+		fbtemplate(5, "Buzz"),
+		fbtemplate(3, "Fizz"),
 	}
 
 	//For loop find function if return true > function
