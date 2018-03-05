@@ -66,31 +66,21 @@ func main() {
 
 }
 
-func findfizzbuzz(number int) string {
-	fizzbuzz := func(n int) (string, bool) {
-		if n%15 == 0 {
-			return "Fizz", true
+func fbtemplate(fbnumber int, str string) func(int) (string, bool) {
+	return func(n int) (string, bool) {
+		if n%fbnumber == 0 {
+			return str, true
 		}
 		return "", false
 	}
-	buzz := func(n int) (string, bool) {
-		if n%5 == 0 {
-			return "Fizz", true
-		}
-		return "", false
-	}
-	fizz := func(n int) (string, bool) {
-		if n%3 == 0 {
-			return "Fizz", true
-		}
-		return "", false
-	}
+}
 
+func findfizzbuzz(number int) string {
 	//Array part , call function
 	Arrayfb := [...]func(n int) (string, bool){
-		fizzbuzz,
-		fizz,
-		buzz,
+		fbtemplate(3, "Fizz"),
+		fbtemplate(5, "buzz"),
+		fbtemplate(15, "Fizzbuzz"),
 	}
 
 	//For loop find function if return true > function
@@ -100,4 +90,5 @@ func findfizzbuzz(number int) string {
 		}
 	}
 	return strconv.Itoa(number)
+
 }
