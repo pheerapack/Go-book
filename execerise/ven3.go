@@ -1,12 +1,5 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"strings"
-)
 /*
 type VendingMachine struct {
 	insertedMoney int
@@ -43,3 +36,4 @@ func main() {
 		}
 	}
 }
+*/
