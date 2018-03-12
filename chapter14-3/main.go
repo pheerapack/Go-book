@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"encoding/json"
 	"net/http"
 	"time"
 )
@@ -9,11 +9,15 @@ import (
 type HomePage struct{}
 
 func (h *HomePage) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	name := r.URL.Query().Get("name")
-	if name == "" {
-		name = "world"
-	}
-	fmt.Fprintf(w, "Hello, %s!", name)
+	user := new(User)
+	json.NewDecoder(r.Body).Decode(user)
+	user.CreatedAt = time.Now()
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+
+	data, _ := json.Marshal(user)
+	w.Write(data)
 }
 
 func main() {
@@ -23,8 +27,8 @@ func main() {
 }
 
 type User struct {
-	Firstname string
-	Lastname  string
-	Email     string
-	CreatedAt time.Time
+	Firstname string    `json:"first_name"`
+	Lastname  string    `json:"last_name"`
+	Email     string    `json:"email"`
+	CreatedAt time.Time `json:"created_at"`
 }
